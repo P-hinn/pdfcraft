@@ -35,12 +35,12 @@ pub const ALLOWED_LICENCES: &[&str] = &[
     "LicenseRef-Public-Domain",
 ];
 
-/// The closed list of Adobe-authored, non-visual technical data (AGENTS.md §1.1): (crate, path).
-/// Storyteller's own brand marks (the ArtCraft name and logos): shipped in the app and docs, but
-/// not licensed for reuse by forks. Allowed only for `kind = "logo"` entries under `docs/brand/`
-/// (AGENTS.md §1.2).
-pub const BRAND_LICENCE: &str = "LicenseRef-Storyteller-Trademark";
+/// The maintainer's own brand marks (the Philipp Niestroj name and PN mark): shipped in the app and
+/// docs, but not licensed for reuse by forks. Allowed only for `kind = "logo"` entries under
+/// `docs/brand/` (AGENTS.md §1.2).
+pub const BRAND_LICENCE: &str = "LicenseRef-PhilippNiestroj-Trademark";
 
+/// The closed list of Adobe-authored, non-visual technical data (AGENTS.md §1.1): (crate, path).
 pub const ADOBE_DATA_ALLOWED: &[(&str, &str)] = &[("hayro-cmap", "assets/cmaps.brotli"), ("hayro-interpret", "src/font/generated/metrics.rs")];
 
 /// First-party files on that same closed list: generated tables of Adobe-authored non-visual
@@ -552,12 +552,10 @@ mod tests {
     #[test]
     fn brand_licence_only_for_brand_logos() {
         let root = super::root();
-        for (path, kind, pass) in [
-            ("docs/brand/artcraft-mark.svg", "logo", true),
-            ("docs/brand/artcraft-mark.svg", "icon", false),
-            ("assets/icons/mark.svg", "logo", false),
-        ] {
-            let mut a = asset(path, "Storyteller", kind, BRAND_LICENCE);
+        for (path, kind, pass) in
+            [("docs/brand/pn-mark-ink.svg", "logo", true), ("docs/brand/pn-mark-ink.svg", "icon", false), ("assets/icons/mark.svg", "logo", false)]
+        {
+            let mut a = asset(path, "Philipp Niestroj", kind, BRAND_LICENCE);
             a.licence_file = "docs/brand/LICENSE-brand.txt".into();
             let m = Manifest { asset: vec![a], ..Default::default() };
             let p = check(&root, &m, &[], &BTreeSet::new());

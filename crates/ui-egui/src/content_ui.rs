@@ -55,7 +55,7 @@ pub(crate) fn undrawn_message(n: &pdfcraft_engine::TextNotice) -> String {
     crate::i18n::fmt(template, &[("c", &n.ch.to_string()), ("code", &format!("U+{:04X}", u32::from(n.ch)))])
 }
 
-const SELECT_BLUE: Color32 = Color32::from_rgb(0x14, 0x73, 0xE6);
+const SELECT_BLUE: Color32 = Color32::from_rgb(0x5C, 0x76, 0xFF);
 
 /// The text being typed or retyped in place.
 #[derive(Clone, Debug, PartialEq)]

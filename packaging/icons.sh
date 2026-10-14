@@ -12,7 +12,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DIR="$ROOT/assets/app-icon"
 SVG="$DIR/pdfcraft.svg"
-ID="ai.storyteller.pdfcraft"
+ID="com.philippniestroj.pdfcraft"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
@@ -73,6 +73,20 @@ if command -v iconutil >/dev/null; then
   done
   iconutil -c icns -o "$DIR/pdfcraft.icns" "$SET"
 else
-  echo "warning: iconutil not found (macOS only); pdfcraft.icns not regenerated" >&2
+  # Elsewhere, write the same PNG-compressed .icns directly (types per Apple's icns format).
+  ICNS_ARGS=()
+  for e in icp4:16 icp5:32 ic07:128 ic08:256 ic09:512 ic10:1024 ic11:32 ic12:64 ic13:256 ic14:512; do
+    render "$MAC" "${e#*:}" "$TMP/icns-${e%%:*}.png"
+    ICNS_ARGS+=("${e%%:*}" "$TMP/icns-${e%%:*}.png")
+  done
+  python3 - "$DIR/pdfcraft.icns" "${ICNS_ARGS[@]}" <<'PY'
+import struct, sys
+out, rest = sys.argv[1], sys.argv[2:]
+body = b""
+for kind, path in zip(rest[::2], rest[1::2]):
+    png = open(path, "rb").read()
+    body += kind.encode("ascii") + struct.pack(">I", 8 + len(png)) + png
+open(out, "wb").write(b"icns" + struct.pack(">I", 8 + len(body)) + body)
+PY
 fi
 echo "icons written to $DIR"

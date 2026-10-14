@@ -168,8 +168,8 @@ pub(crate) fn page_input(ui: &egui::Ui, resp: &egui::Response, xf: &PageXform, p
     {
         let end = Pos2::new(end.x.clamp(xf.rect.left(), xf.rect.right()), end.y.clamp(xf.rect.top(), xf.rect.bottom()));
         let r = Rect::from_two_pos(start, end);
-        ui.painter().rect_filled(r, CornerRadius::ZERO, Color32::from_rgba_unmultiplied(0x14, 0x73, 0xE6, 28));
-        ui.painter().rect_stroke(r, CornerRadius::ZERO, Stroke::new(1.0, Color32::from_rgb(0x14, 0x73, 0xE6)), egui::StrokeKind::Middle);
+        ui.painter().rect_filled(r, CornerRadius::ZERO, Color32::from_rgba_unmultiplied(0x5C, 0x76, 0xFF, 28));
+        ui.painter().rect_stroke(r, CornerRadius::ZERO, Stroke::new(1.0, Color32::from_rgb(0x5C, 0x76, 0xFF)), egui::StrokeKind::Middle);
         if resp.drag_stopped() {
             view.sign.drag = None;
             if r.width() >= 8.0 && r.height() >= 8.0 {
@@ -1013,7 +1013,7 @@ pub(crate) fn banner(sigs: &[SignatureInfo]) -> Option<(&'static str, Color32, &
             };
             crate::i18n::fmt(tl!(template), &[("who", &who), ("issuer", issuer)])
         });
-        return Some(("badge-check", Color32::from_rgb(0x14, 0x73, 0xE6), "Certified by {by}", by.unwrap_or_default()));
+        return Some(("badge-check", Color32::from_rgb(0x5C, 0x76, 0xFF), "Certified by {by}", by.unwrap_or_default()));
     }
     Some(if signed.iter().any(|s| s.status == SignatureStatus::Invalid) {
         ("circle-x", Color32::from_rgb(0xD7, 0x37, 0x3F), "At least one signature is invalid.", String::new())

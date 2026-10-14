@@ -2375,7 +2375,7 @@ fn switching_from_a_narrow_editor_keeps_one_frame_and_a_wide_heading_on_one_line
         .iter()
         .filter(|shape| {
             matches!(&shape.shape,
-                egui::Shape::Rect(rect) if rect.stroke.color == egui::Color32::from_rgb(0x14, 0x73, 0xE6)
+                egui::Shape::Rect(rect) if rect.stroke.color == egui::Color32::from_rgb(0x5C, 0x76, 0xFF)
                     && rect.rect.width() > 100.0 && page.contains(rect.rect.center())
             )
         })
@@ -3479,7 +3479,7 @@ fn one_editor_contains_mixed_styles_and_visual_rows() {
         .shapes
         .iter()
         .find_map(|s| match &s.shape {
-            egui::Shape::Rect(r) if r.stroke.color == egui::Color32::from_rgb(0x14, 0x73, 0xE6) && r.rect.width() > 50.0 => Some(r.rect),
+            egui::Shape::Rect(r) if r.stroke.color == egui::Color32::from_rgb(0x5C, 0x76, 0xFF) && r.rect.width() > 50.0 => Some(r.rect),
             _ => None,
         })
         .unwrap();
@@ -3683,7 +3683,7 @@ fn inline_editor_preserves_source_font_and_previews_live_bounds() {
             .shapes
             .iter()
             .find_map(|s| match &s.shape {
-                egui::Shape::Rect(r) if r.stroke.color == egui::Color32::from_rgb(0x14, 0x73, 0xE6) && r.rect.width() > 100.0 => Some(r.rect),
+                egui::Shape::Rect(r) if r.stroke.color == egui::Color32::from_rgb(0x5C, 0x76, 0xFF) && r.rect.width() > 100.0 => Some(r.rect),
                 _ => None,
             })
             .unwrap()
@@ -3810,7 +3810,7 @@ fn cropped_images_do_not_intercept_text_and_stay_inside_each_page() {
         assert!(h.state().views[0].image_selection.as_ref().is_some_and(|s| s.page == page));
         for shape in &h.output().shapes {
             if let egui::Shape::Rect(rect) = &shape.shape
-                && rect.stroke.color == egui::Color32::from_rgb(0x14, 0x73, 0xE6)
+                && rect.stroke.color == egui::Color32::from_rgb(0x5C, 0x76, 0xFF)
                 && rect.rect.width() > 50.0
             {
                 assert!(r.expand(3.0).contains_rect(rect.rect), "no image frame escapes its own page");
