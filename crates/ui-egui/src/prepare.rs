@@ -14,7 +14,7 @@ use crate::canvas::{DocView, PageXform};
 use crate::theme;
 use crate::widgets;
 
-const SELECT_BLUE: Color32 = Color32::from_rgb(0x14, 0x73, 0xE6);
+const SELECT_BLUE: Color32 = Color32::from_rgb(0x5C, 0x76, 0xFF);
 /// Acrobat's field fill in Prepare Form (light blue).
 const FIELD_FILL: Color32 = Color32::from_rgba_premultiplied(0x1B, 0x34, 0x54, 0x59);
 

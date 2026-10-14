@@ -95,7 +95,7 @@
 	Side panels	サイドパネル
 	Enable Acrobat JavaScript	Acrobat JavaScript を有効にする
 	OK	OK
-	Join our Discord	Discord に参加
+	Get in touch	お問い合わせ
 	Close	閉じる
 	Next / previous match	次／前の検索結果
 	Copy selected text	選択したテキストをコピー
@@ -163,8 +163,8 @@
 	Current page — type a page number or label (such as iv) and press Enter	現在のページ：ページ番号またはラベル（例：iv）を入力して Enter
 	Welcome to PdfCraft	PdfCraft へようこそ
 	An open-source PDF workbench — local, private, and scriptable.	ローカルで処理し、プライバシーを守る、スクリプト対応のオープンソース PDF ツール。
-	Join the ArtCraft community	ArtCraft コミュニティに参加
-	Get help, share feedback and follow development on Discord.	Discord で質問やフィードバックを共有し、開発の進捗を確認できます。
+	Maintained by Philipp Niestroj	Philipp Niestroj がメンテナンス
+	Questions, feedback or a project in mind? Get in touch.	ご質問、フィードバック、プロジェクトのご相談はお気軽にどうぞ。
 	Recommended tools	おすすめのツール
 	Use now	使用する
 	Open file	ファイルを開く
@@ -309,10 +309,9 @@
 	Split document…	文書を分割…
 	Number pages…	ページ番号を設定…
 	Keyboard shortcuts	キーボードショートカット
-	Join the ArtCraft Discord	ArtCraft の Discord に参加
-	PdfCraft web page	PdfCraft の Web 版
+	Contact Philipp Niestroj	Philipp Niestroj に問い合わせる
 	PdfCraft on GitHub	GitHub の PdfCraft
-	ArtCraft website	ArtCraft のウェブサイト
+	Contact	お問い合わせ
 	Check for updates…	更新を確認…
 	About PdfCraft	PdfCraft について
 	Export a PDF	PDF を書き出す
@@ -1401,7 +1400,7 @@
 	Discard	破棄
 	Version {v}	バージョン {v}
 	A clean-room, open-source PDF application written in Rust. MIT OR Apache-2.0.	Rust で記述したクリーンルーム方式のオープンソース PDF アプリケーション。MIT OR Apache-2.0。
-	Part of	関連プロジェクト
+	Maintained by	メンテナー
 	Summarize Options	一覧のオプション
 	Choose a layout:	レイアウトを選択:
 	Comments only	注釈のみ
@@ -2354,3 +2353,5 @@ animation effects	Off	オフ
 	This document is trying to open a local file:	この文書はローカルファイルを開こうとしています：
 	Move tag earlier	タグを前へ移動
 	Move tag later	タグを後へ移動
+# Maintainer links (this distribution, 2026-10-14)
+	Philipp Niestroj's website	Philipp Niestroj のウェブサイト

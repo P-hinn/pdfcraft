@@ -1,5 +1,6 @@
-//! Design tokens and egui style (plan/acrobat/02-ui-ux.md §1: neutral chrome, white panels,
-//! one blue accent; Dark Gray keeps pages white). Every custom widget reads `Tokens::get`.
+//! Design tokens and egui style, in Philipp Niestroj's corporate identity (philippniestroj.com):
+//! ink `#171714` on paper `#f1efe8`, acid lime `#d8ff55` as the highlight, blue `#5c76ff` for
+//! links, square corners. Pages stay white in both themes. Every custom widget reads `Tokens::get`.
 
 use std::sync::Arc;
 
@@ -59,10 +60,14 @@ pub struct Tokens {
     pub pressed: Color32,
     pub selected: Color32,
     pub accent: Color32,
+    /// Text and icons drawn on an `accent` fill (primary buttons).
+    pub on_accent: Color32,
     pub accent_text: Color32,
     pub accent_soft: Color32,
     pub field: Color32,
     pub badge_new: Color32,
+    /// Text drawn on a `badge_new` fill.
+    pub on_badge: Color32,
     pub page_shadow: Color32,
     pub radius: u8,
 }
@@ -72,51 +77,55 @@ impl Tokens {
         match kind {
             ThemeKind::Light => Self {
                 kind,
-                titlebar: Color32::from_rgb(0xE9, 0xE9, 0xEB),
-                chrome: Color32::from_rgb(0xFF, 0xFF, 0xFF),
-                panel: Color32::from_rgb(0xFF, 0xFF, 0xFF),
-                pasteboard: Color32::from_rgb(0xF1, 0xF1, 0xF3),
-                card: Color32::from_rgb(0xFF, 0xFF, 0xFF),
-                border: Color32::from_rgb(0xDA, 0xDA, 0xDE),
-                divider: Color32::from_rgb(0xE8, 0xE8, 0xEB),
-                text: Color32::from_rgb(0x22, 0x22, 0x26),
-                text_muted: Color32::from_rgb(0x5E, 0x5E, 0x66),
-                text_faint: Color32::from_rgb(0x6B, 0x6B, 0x73),
-                icon: Color32::from_rgb(0x44, 0x44, 0x4B),
-                hover: Color32::from_rgb(0xF0, 0xF0, 0xF3),
-                pressed: Color32::from_rgb(0xE4, 0xE4, 0xE9),
-                selected: Color32::from_rgb(0xE6, 0xEE, 0xFD),
-                accent: Color32::from_rgb(0x1B, 0x63, 0xE0),
-                accent_text: Color32::from_rgb(0x17, 0x55, 0xC4),
-                accent_soft: Color32::from_rgb(0xE3, 0xEC, 0xFD),
-                field: Color32::from_rgb(0xFF, 0xFF, 0xFF),
-                badge_new: Color32::from_rgb(0x1B, 0x63, 0xE0),
+                titlebar: Color32::from_rgb(0xE4, 0xE1, 0xD7),
+                chrome: Color32::from_rgb(0xF1, 0xEF, 0xE8),
+                panel: Color32::from_rgb(0xF1, 0xEF, 0xE8),
+                pasteboard: Color32::from_rgb(0xE6, 0xE3, 0xDA),
+                card: Color32::from_rgb(0xF8, 0xF7, 0xF3),
+                border: Color32::from_rgb(0xCF, 0xCC, 0xC2),
+                divider: Color32::from_rgb(0xDD, 0xDA, 0xD0),
+                text: Color32::from_rgb(0x17, 0x17, 0x14),
+                text_muted: Color32::from_rgb(0x57, 0x57, 0x50),
+                text_faint: Color32::from_rgb(0x5E, 0x5D, 0x56),
+                icon: Color32::from_rgb(0x2B, 0x2B, 0x27),
+                hover: Color32::from_rgb(0xE7, 0xE4, 0xDA),
+                pressed: Color32::from_rgb(0xDB, 0xD8, 0xCD),
+                selected: Color32::from_rgb(0xDC, 0xF5, 0x8A),
+                accent: Color32::from_rgb(0x17, 0x17, 0x14),
+                on_accent: Color32::from_rgb(0xD8, 0xFF, 0x55),
+                accent_text: Color32::from_rgb(0x3A, 0x52, 0xD6),
+                accent_soft: Color32::from_rgb(0xEC, 0xF8, 0xC2),
+                field: Color32::from_rgb(0xFB, 0xFA, 0xF7),
+                badge_new: Color32::from_rgb(0xD8, 0xFF, 0x55),
+                on_badge: Color32::from_rgb(0x17, 0x17, 0x14),
                 page_shadow: Color32::from_black_alpha(34),
-                radius: 6,
+                radius: 0,
             },
             ThemeKind::Dark => Self {
                 kind,
-                titlebar: Color32::from_rgb(0x1B, 0x1B, 0x1E),
-                chrome: Color32::from_rgb(0x26, 0x26, 0x2A),
-                panel: Color32::from_rgb(0x26, 0x26, 0x2A),
-                pasteboard: Color32::from_rgb(0x19, 0x19, 0x1C),
-                card: Color32::from_rgb(0x2E, 0x2E, 0x33),
-                border: Color32::from_rgb(0x3C, 0x3C, 0x43),
-                divider: Color32::from_rgb(0x33, 0x33, 0x39),
-                text: Color32::from_rgb(0xEC, 0xEC, 0xEF),
-                text_muted: Color32::from_rgb(0xAE, 0xAE, 0xB6),
-                text_faint: Color32::from_rgb(0x97, 0x97, 0x9E),
-                icon: Color32::from_rgb(0xD4, 0xD4, 0xDA),
-                hover: Color32::from_rgb(0x34, 0x34, 0x3A),
-                pressed: Color32::from_rgb(0x3E, 0x3E, 0x45),
-                selected: Color32::from_rgb(0x23, 0x3A, 0x63),
-                accent: Color32::from_rgb(0x4B, 0x8B, 0xF5),
-                accent_text: Color32::from_rgb(0x8C, 0xB6, 0xFA),
-                accent_soft: Color32::from_rgb(0x24, 0x36, 0x57),
-                field: Color32::from_rgb(0x1E, 0x1E, 0x22),
-                badge_new: Color32::from_rgb(0x3D, 0x7D, 0xEE),
+                titlebar: Color32::from_rgb(0x0F, 0x0F, 0x0D),
+                chrome: Color32::from_rgb(0x1D, 0x1D, 0x1A),
+                panel: Color32::from_rgb(0x1D, 0x1D, 0x1A),
+                pasteboard: Color32::from_rgb(0x13, 0x13, 0x11),
+                card: Color32::from_rgb(0x26, 0x26, 0x22),
+                border: Color32::from_rgb(0x3A, 0x3A, 0x35),
+                divider: Color32::from_rgb(0x2F, 0x2F, 0x2B),
+                text: Color32::from_rgb(0xF1, 0xEF, 0xE8),
+                text_muted: Color32::from_rgb(0xB5, 0xB3, 0xAB),
+                text_faint: Color32::from_rgb(0x9C, 0x9A, 0x92),
+                icon: Color32::from_rgb(0xDC, 0xDA, 0xD2),
+                hover: Color32::from_rgb(0x2C, 0x2C, 0x28),
+                pressed: Color32::from_rgb(0x36, 0x36, 0x31),
+                selected: Color32::from_rgb(0x3B, 0x48, 0x14),
+                accent: Color32::from_rgb(0xD8, 0xFF, 0x55),
+                on_accent: Color32::from_rgb(0x17, 0x17, 0x14),
+                accent_text: Color32::from_rgb(0xD8, 0xFF, 0x55),
+                accent_soft: Color32::from_rgb(0x2D, 0x37, 0x10),
+                field: Color32::from_rgb(0x15, 0x15, 0x13),
+                badge_new: Color32::from_rgb(0xD8, 0xFF, 0x55),
+                on_badge: Color32::from_rgb(0x17, 0x17, 0x14),
                 page_shadow: Color32::from_black_alpha(120),
-                radius: 6,
+                radius: 0,
             },
         }
     }
@@ -393,8 +402,8 @@ pub fn apply(ctx: &egui::Context, kind: ThemeKind) {
     v.selection.stroke = Stroke::new(1.0, t.accent);
     v.hyperlink_color = t.accent_text;
     v.override_text_color = Some(t.text);
-    v.window_corner_radius = CornerRadius::same(10);
-    v.menu_corner_radius = CornerRadius::same(8);
+    v.window_corner_radius = CornerRadius::same(t.radius);
+    v.menu_corner_radius = CornerRadius::same(t.radius);
     v.window_shadow = egui::Shadow { offset: [0, 8], blur: 28, spread: 0, color: Color32::from_black_alpha(if t.dark() { 110 } else { 38 }) };
     v.popup_shadow = egui::Shadow { offset: [0, 4], blur: 16, spread: 0, color: Color32::from_black_alpha(if t.dark() { 90 } else { 30 }) };
     for w in [&mut v.widgets.noninteractive, &mut v.widgets.inactive, &mut v.widgets.hovered, &mut v.widgets.active, &mut v.widgets.open] {
@@ -669,6 +678,23 @@ mod tests {
         let held = Press { hover: 1.0, down: 1.0 };
         assert_eq!(held.fill(rest, hover, pressed), pressed);
         assert_eq!(held.offset(), Vec2::new(0.0, 1.0));
+    }
+
+    #[test]
+    fn brand_accents_are_readable() {
+        for kind in [ThemeKind::Light, ThemeKind::Dark] {
+            let t = Tokens::for_kind(kind);
+            for (name, fg, bg) in [
+                ("on_accent", t.on_accent, t.accent),
+                ("on_badge", t.on_badge, t.badge_new),
+                ("accent_text on panel", t.accent_text, t.panel),
+                ("accent_text on card", t.accent_text, t.card),
+                ("text on selected", t.text, t.selected),
+            ] {
+                let r = contrast(fg, bg);
+                assert!(r >= 4.5, "{kind:?} {name}: {r:.2}:1, WCAG AA needs 4.5:1");
+            }
+        }
     }
 
     #[test]

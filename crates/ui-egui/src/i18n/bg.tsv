@@ -1352,7 +1352,6 @@
 	Select all pages (Organize)	Избери всички страници (Организиране)
 	Version {v}	Версия {v}
 	A clean-room, open-source PDF application written in Rust. MIT OR Apache-2.0.	Независимо разработено PDF приложение с отворен код, написано на Rust. MIT OR Apache-2.0.
-	Part of	Част от
 	Summarize Options	Опции за обобщение
 	Choose a layout:	Изберете оформление:
 	Comments only	Само коментари
@@ -1815,13 +1814,7 @@
 	Split document…	Раздели документа…
 	Number pages…	Номерирай страниците…
 	Keyboard shortcuts	Клавишни комбинации
-	Join the ArtCraft Discord	Присъедини се към ArtCraft в Discord
-	Join the ArtCraft community	Присъедини се към общността на ArtCraft
-	Get help, share feedback and follow development on Discord.	Получете помощ, споделете мнение и следете разработката в Discord.
-	Join our Discord	Присъедини се към нашия Discord
-	PdfCraft web page	Уебстраница на PdfCraft
 	PdfCraft on GitHub	PdfCraft в GitHub
-	ArtCraft website	Уебсайт на ArtCraft
 	Check for updates…	Провери за актуализации…
 	About PdfCraft	За PdfCraft
 	JavaScript console…	JavaScript конзола…
@@ -2317,3 +2310,11 @@ animation effects	Off	Изключени
 	This document is trying to open a local file:	Този документ се опитва да отвори локален файл:
 	Move tag earlier	Преместване на етикета по-рано
 	Move tag later	Преместване на етикета по-късно
+# Maintainer links (this distribution, 2026-10-14)
+	Get in touch	Свържете се с мен
+	Maintained by Philipp Niestroj	Поддържа се от Philipp Niestroj
+	Questions, feedback or a project in mind? Get in touch.	Въпроси, отзиви или идея за проект? Свържете се с мен.
+	Contact Philipp Niestroj	Свържете се с Philipp Niestroj
+	Maintained by	Поддържа се от
+	Contact	Контакт
+	Philipp Niestroj's website	Уебсайтът на Philipp Niestroj

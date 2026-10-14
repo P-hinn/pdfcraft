@@ -66,8 +66,8 @@ pub fn tab_strip(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                     app.active = None;
                     app.combine_tab.focused = false;
                 }
-                // Keep the two icon buttons, Discord's text/padding and three gaps outside the scrolling tabs.
-                let controls_width = ui.fonts_mut(|f| f.layout_no_wrap("Discord".into(), theme::medium(13.0), t.text).size().x)
+                // Keep the two icon buttons, Contact's text/padding and three gaps outside the scrolling tabs.
+                let controls_width = ui.fonts_mut(|f| f.layout_no_wrap(tl!("Contact").to_string(), theme::medium(13.0), t.text).size().x)
                     + 2.0 * button
                     + 50.0
                     + window_controls::width(&controls.right);
@@ -289,9 +289,12 @@ pub fn tab_strip(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                     if icons::button(ui, "circle-help", button, false, tl!("Keyboard shortcuts")).clicked() {
                         app.dialog = Some(Dialog::Shortcuts);
                     }
-                    // One click to the community, from anywhere in the app.
-                    if widgets::ghost_button_sized(ui, "messages-square", "Discord", tab_h).on_hover_text(pdfcraft_engine::links::DISCORD).clicked() {
-                        app.execute("help.discord");
+                    // One click to the maintainer, from anywhere in the app.
+                    if widgets::ghost_button_sized(ui, "messages-square", tl!("Contact"), tab_h)
+                        .on_hover_text(pdfcraft_engine::links::CONTACT)
+                        .clicked()
+                    {
+                        app.execute("help.contact");
                     }
                 });
             });

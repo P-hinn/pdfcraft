@@ -13,7 +13,7 @@ use pdfcraft_render::DocInfo;
 
 use crate::canvas::{DocView, PageXform};
 
-const ACCENT: Color32 = Color32::from_rgb(0x14, 0x73, 0xE6);
+const ACCENT: Color32 = Color32::from_rgb(0x5C, 0x76, 0xFF);
 
 /// A cached, read-only page background. The source glyphs are removed before rasterization;
 /// colour, pictures and unselected text beneath the editor remain visible.
